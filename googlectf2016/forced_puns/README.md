@@ -102,3 +102,8 @@ the `/bin/sh` string, but it was quite easy at this point to overwrite the first
 bytes of the first entry in the heap to insert the string.
 
 You can find the full exploit in exp.py.
+
+
+
+As a side note, r2 was able to get the name of the library functions called in
+the binary, while IDA didn't. :P
