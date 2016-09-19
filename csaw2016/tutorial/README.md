@@ -19,9 +19,10 @@ $ checksec ./tutorial
 ```
 
 So it seems like we have to do ret-to-libc/ROP and to bypass the canary. ASLR,
-even if not enabled on the server (it can be checked easily by connecting multiple
-times to the server and using the first menu option), wouldn't be a problem
-because of the `Manual` function that can leak an address inside the libc.
+even if enabled on the server, is not a problem because the service implement
+the socket/accept/fork itself and doesn't re-randomize on each fork, so the
+addresses are always the same and they can be seen with the `Manual` function
+that can leak an address inside the libc.
 
 By decompiling the function related to the `Practice` functionality we get:
 ```C
